@@ -8,17 +8,17 @@ pipeline{
         }
         stage("Build project node js backend"){
             steps{
-                bat "npm install"
+                sh "npm install"
             }
         }
         stage("Build dockefile"){
             steps{
-                bat "docker build -t my-backend ."
+                sh "docker build -t my-backend ."
             }
         }
         stage("Run dockerfile container"){
             steps{
-                bat "docker run -d  -p 3008:3008 my-backend"
+                sh "docker run -d  -p 3008:3008 my-backend"
             }
         }
 
